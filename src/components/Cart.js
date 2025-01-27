@@ -1,26 +1,22 @@
-import React from 'react';
-import CartItem from './CartItem';
-import TotalPrice from './TotalPrice';
+import React from "react";
 
-const Cart = ({ cart, removeFromCart, updateQuantity }) => {
+function Cart({ cart }) {
   return (
     <div>
-      <h2>Your Cart</h2>
+      <h2>Cart</h2>
       {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p>Your cart is empty</p>
       ) : (
-        cart.map(item => (
-          <CartItem
-            key={item.id}
-            item={item}
-            removeFromCart={removeFromCart}
-            updateQuantity={updateQuantity}
-          />
-        ))
+        <ul>
+          {cart.map((product, index) => (
+            <li key={index}>
+              {product.name} - ${product.price}
+            </li>
+          ))}
+        </ul>
       )}
-      <TotalPrice cart={cart} />
     </div>
   );
-};
+}
 
 export default Cart;

@@ -1,15 +1,14 @@
-import React from 'react';
-import Product from './Product';
+import React from "react";
 
-const ProductList = ({ products, addToCart }) => {
+function ProductDetails({ product, onAddToCart }) {
   return (
     <div>
-      <h2>Available Products</h2>
-      {products.map(product => (
-        <Product key={product.id} product={product} addToCart={addToCart} />
-      ))}
+      <h2>Product Details</h2>
+      <p>Name: {product.name}</p>
+      <p>Price: ${product.price}</p>
+      <button onClick={() => onAddToCart(product)}>Add to Cart</button>
     </div>
   );
-};
+}
 
-export default ProductList;
+export default ProductDetails;
